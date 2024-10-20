@@ -232,4 +232,3 @@ df -h
 In this tutorial, you have learned how to install and complete the initial configuration of Jenkins on a Linux server. If you have any questions, please leave a comment below.
 
 **Thank you for watching this video. We will see you in the next video.**
-```
