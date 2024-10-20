@@ -1,5 +1,5 @@
 
-# Step-by-Step Guide to Installing Jenkins on Linux Serever (Amazon Linux 2023 / Redhat)
+### Step-by-Step Guide to Installing Jenkins on Linux Serever (Amazon Linux 2023 / Redhat)
 
 In this session, we will discuss how to install Jenkins on Linux Serever.
 
