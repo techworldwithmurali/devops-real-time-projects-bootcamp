@@ -211,9 +211,7 @@ To maintain persistent data, use EFS to mount the `/var/lib/jenkins` path.
 
 **EFS Name:** `Jenkins-efs`
 
-
-
-### 1. Mount the EFS
+### Step 22. Mount the EFS
 
 You can use the following command to mount your EFS file system:
 
@@ -221,7 +219,7 @@ You can use the following command to mount your EFS file system:
 sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-0bcbf91655f493213.efs.us-east-1.amazonaws.com:/ /var/lib/jenkins
 ```
 
-### 2. Verify the Mount
+### Step 23. Verify the Mount
 
 To verify that the EFS is mounted, use:
 
@@ -231,12 +229,12 @@ df -h
 
 You should see an entry for the EFS file system.
 
-### 3. Update `/etc/fstab` for Persistence
+### Step 24. Update `/etc/fstab` for Persistence
 
-To ensure that the EFS file system mounts automatically on reboot, add an entry to the `/etc/fstab` file. Open the file with a text editor, e.g., `nano`:
+To ensure that the EFS file system mounts automatically on reboot, add an entry to the `/etc/fstab` file. Open the file with a text editor, e.g., `vim`:
 
 ```bash
-sudo nano /etc/fstab
+sudo vim  /etc/fstab
 ```
 
 Then add the following line at the end of the file:
@@ -245,20 +243,7 @@ Then add the following line at the end of the file:
 fs-0bcbf91655f493213.efs.us-east-1.amazonaws.com:/ /var/lib/jenkins  nfs4 defaults,nofail,_netdev 0 0
 ```
 
-### 4. Save and Exit
-
-If you’re using `nano`, save the file by pressing `CTRL + O`, then exit with `CTRL + X`.
-
-### 5. Test the `/etc/fstab` Entry
-
-You can test the `/etc/fstab` entry by unmounting the EFS and remounting it:
-
-```bash
-sudo umount /var/lib/jenkins
-sudo mount -a
-```
-
-Check again with `df -h` to confirm that it’s mounted correctly.
+### Step 25. You can reboot the server to check whether the EFS is mounted automatically.
 
 #### Conclusion
 
