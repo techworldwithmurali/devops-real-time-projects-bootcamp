@@ -1,6 +1,6 @@
-# How to Install Nexus 3 on CentOS 7 / Amazon Linux
+# How to Install Nexus 3 on Linux Server
 
-In this guide, we will go over how to install Nexus 3 on CentOS 7 or Amazon Linux.
+In this guide, we will go over how to install Nexus 3 on  Linux Server
 
 ## Prerequisites:
 - Sudo privileges required to install packages.
@@ -191,6 +191,26 @@ cat /opt/sonatype-work/nexus3/admin.password
 ### Step 21: Reset Default Password
 After the first login, reset the default password as prompted and disable anonymous access if needed.
 
+
+### Step 22: Create the Target Group
+Create a target group and add the instance with port `8080`. Set the health check path to `/login`.
+
+- **Target Group Name:** `nexus-tg`
+
+### Step 23: Create the Load Balancer
+Create the internal load balancer and add listeners for both HTTP (`80`) and HTTPS (`443`).
+
+- **Load Balancer Name:** `nexus-alb`
+
+### Step 24: Create the A Record in Route 53
+Create an A record in Route 53 to point to the Nexus internal load balancer.
+
+- **Record Name:** `nexus.techworldwithmurali.in`
+
+### Step 25: Access Jenkins
+You can access Nexus  using the following URL:
+
+- **URL:** https://nexus.techworldwithmurali.in
 
 
 ## Conclusion
