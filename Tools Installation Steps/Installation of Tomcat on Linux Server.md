@@ -5,9 +5,9 @@ In this session, we are going to discuss the Installation of Tomcat  on Linux Se
 ## Prerequisites
 - You must be logged in via SSH as a sudo or root user to install the packages.
 
-## Step 1: Install OpenJDK 8 in CentOS 7  
+## Step 1:  Install Java 17
 ```bash
-[root@ip-172-31-89-37 ~]# sudo yum install java-1.8.0-devel -y
+[root@ip-172-31-89-37 ~]# sudo yum install java-17-amazon-corretto-devel -y
 ```
 
 ## Step 1.1: Check Java Installation
