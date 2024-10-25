@@ -204,7 +204,7 @@ Use the default username and password:
 This account should not use the default password, so set a new password.
 
 ### Step 21: Create the Target Group
-Create a target group and add the instance with port `9000`. Set the health check path to `/api/system/health`.
+Create a target group and add the instance with port `9000`. Set the health check path to `/`.
 
 - **Target Group Name:** `sonarqube-tg`
 
