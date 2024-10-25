@@ -1,59 +1,126 @@
-# Installing JFrog Artifactory OSS on Linxu Server
+## Installation of Jfrog on Linux Server
 
-Follow these steps to install JFrog Artifactory OSS:
-
-## Step 1: Add JFrog Artifactory Repository
-
-Run the following command to download the JFrog Artifactory repository configuration file:
-
+### Step 1: Download JFrog Artifactory
 ```bash
-wget https://releases.jfrog.io/artifactory/artifactory-rpms/artifactory-rpms.repo -O jfrog-artifactory-rpms.repo
+wget https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/7.90.7/jfrog-artifactory-oss-7.90.7.tar.gz
 ```
 
-## Step 2: Move the Repository File
-
-Move the downloaded repository file to the YUM repository directory:
-
+### Step 2: Untar the File
 ```bash
-sudo mv jfrog-artifactory-rpms.repo /etc/yum.repos.d/
+tar -xvzf jfrog-artifactory-oss-7.90.7.tar.gz
 ```
 
-## Step 3: Update YUM and Install JFrog Artifactory OSS
-
-Update the YUM package manager and install JFrog Artifactory OSS with the following command:
-
+### Step 3: Rename the Directory
 ```bash
-sudo yum update && sudo yum install jfrog-artifactory-oss
+sudo mv jfrog-artifactory-oss-7.90.7 /opt/artifactory
 ```
 
-## Step 4: Create the Target Group
+### Step 4: Create the Systemd Service
+```bash
+sudo vim /etc/systemd/system/artifactory.service
+```
+Add the following content:
+```ini
+[Unit]
+Description=Artifactory Service
+After=network.target
 
-1. Create a target group.
-2. Add the instance with port **8082**.
-3. Set the health check path to `/api/system/health`.
+[Service]
+Type=forking
+User=root
+ExecStart=/opt/artifactory/app/bin/artifactory.sh start
+ExecStop=/opt/artifactory/app/bin/artifactory.sh stop
+ExecReload=/opt/artifactory/app/bin/artifactory.sh restart
+TimeoutSec=600
+Restart=on-failure
 
-**Target Group Name:** `jfrog-tg`
+[Install]
+WantedBy=multi-user.target
+```
 
-## Step 5: Create the Load Balancer for JFrog
+### Step 5: Enable the Service
+```bash
+sudo systemctl enable artifactory.service
+```
 
-1. Create the Internal load balancer.
-2. Add listeners for both HTTP (**80**) and HTTPS (**443**).
+### Step 6: Check the Status
+```bash
+sudo systemctl status artifactory.service
+```
 
-**Load Balancer Name:** `jfrog-alb`
+### Step 7: Start Artifactory
+```bash
+sudo systemctl start artifactory.service
+```
 
-## Step 6: Create the A Record in Route 53
+### Step 8: Configure AWS Security Groups
+Make sure to allow inbound traffic on ports **8081** and **8082** in your AWS security group.
 
-1. Create an A record in Route 53 to point to the JFrog Internal load balancer.
+### Step 9: Access JFrog Artifactory
+Use the following URL to access Artifactory:
+```
+http://<IP-address>:8081
+```
 
-**Record Name:** `jfrog.techworldwithmurali.in`
+### Note on PostgreSQL Integration
+If you haven't integrated PostgreSQL, you may encounter a 404 error.
 
-## Step 7: Access JFrog
+### Step 10: Create AWS RDS PostgreSQL Instance
+Set up an RDS PostgreSQL 14 instance in your AWS account.
 
-Access JFrog Artifactory using the following URL:
+### Step 11: Install PostgreSQL Client
+SSH into your Amazon Linux 2023 instance and run:
+```bash
+sudo dnf install postgresql15 -y
+```
 
-**URL:** https://jfrog.techworldwithmurali.in
+### Step 12: Connect to the RDS PostgreSQL Cluster
+Replace `<endpoint>`, `<username>`, and `<database>` with your actual values:
+```bash
+psql -h <endpoint> -U <username> -d postgres
+```
+Example:
+```bash
+psql -h jfrog.hhuikyyfujhty.us-east-1.rds.amazonaws.com -U postgres
+```
 
+### Step 13: Create Database and User
+Once logged in, run the following SQL commands:
+```sql
+CREATE DATABASE artifactory WITH OWNER artifactoryuser ENCODING 'UTF8';
+CREATE USER artifactoryuser WITH PASSWORD 'p7tl6P7Jnpvi3l5';
+GRANT ALL PRIVILEGES ON DATABASE artifactory TO artifactoryuser;
+\q
+```
 
-## Conclusion
+### Step 14: Stop Artifactory
+If Artifactory is running, stop it:
+```bash
+sudo systemctl stop artifactory.service
+```
 
-You have successfully installed JFrog Artifactory OSS on your CentOS or Amazon Linux instance. You can now start and configure Artifactory as needed.
+### Step 15: Configure PostgreSQL in Artifactory
+Edit the configuration file:
+```bash
+sudo vim /opt/artifactory/var/etc/system.yaml
+```
+Add the PostgreSQL details:
+```yaml
+database:
+  type: postgresql
+  driver: org.postgresql.Driver
+  url: jdbc:postgresql://<endpoint>:5432/artifactory
+  username: artifactoryuser
+  password: p7tl6P7Jnpvi3l5
+```
+
+### Step 16: Start Artifactory
+```bash
+sudo systemctl start artifactory.service
+```
+
+### Step 17: Access JFrog Artifactory Again
+Use the following URL:
+```
+http://<IP-address>:8081
+```
