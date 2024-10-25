@@ -87,10 +87,22 @@ psql -h jfrog.hhuikyyfujhty.us-east-1.rds.amazonaws.com -U postgres
 ### Step 13: Create Database and User
 Once logged in, run the following SQL commands:
 ```sql
-CREATE DATABASE artifactory WITH OWNER artifactoryuser ENCODING 'UTF8';
-CREATE USER artifactoryuser WITH PASSWORD 'p7tl6P7Jnpvi3l5';
-GRANT ALL PRIVILEGES ON DATABASE artifactory TO artifactoryuser;
+-- Step 1: Create a new database named 'artifactory'
+CREATE DATABASE artifactory 
+  WITH OWNER artifactoryuser   -- Set 'artifactoryuser' as the owner of this database
+  ENCODING 'UTF8';             -- Use UTF-8 encoding to support a wide range of characters
+
+-- Step 2: Create a new user named 'artifactoryuser'
+CREATE USER artifactoryuser 
+  WITH PASSWORD 'p7tl6P7Jnpvi3l5'; -- Assign a password to the user for authentication
+
+-- Step 3: Grant all privileges on the 'artifactory' database to 'artifactoryuser'
+GRANT ALL PRIVILEGES ON DATABASE artifactory 
+  TO artifactoryuser;          -- This allows the user to perform all operations (SELECT, INSERT, UPDATE, DELETE, etc.) on the database
+
+-- Step 4: Exit the PostgreSQL command line
 \q
+
 ```
 
 ### Step 14: Stop Artifactory
