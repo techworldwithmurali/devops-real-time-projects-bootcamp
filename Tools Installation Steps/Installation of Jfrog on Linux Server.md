@@ -136,3 +136,23 @@ Use the following URL:
 ```
 http://<IP-address>:8081
 ```
+
+### Step 18: Create the Target Group
+Create a target group and add the instance with port `8081 and 8082`. Set the health check path to `/`.
+
+- **Target Group Name:** `jfrog-tg`
+
+### Step 19: Create the Load Balancer
+Create the internal load balancer and add listeners for both HTTP (`80`) and HTTPS (`443`).
+
+- **Load Balancer Name:** `jfrog-alb`
+
+### Step 20: Create the A Record in Route 53
+Create an A record in Route 53 to point to the SonarQube internal load balancer.
+
+- **Record Name:** `jfrog.techworldwithmurali.in`
+
+### Step 21: Access Artifactory
+You can access Artifactory using the following URL:
+
+- **URL:** https://jfrog.techworldwithmurali.in
