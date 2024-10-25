@@ -24,6 +24,9 @@ Download the SonarQube 9.9.7 zip file under the `/opt` directory from the offici
 ```bash
 wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.7.96285.zip
 ```
+Website Link: 
+
+https://www.sonarsource.com/products/sonarqube/downloads/historical-downloads/
 
 ## Step 3: Unzip the Downloaded Archive
 Unzip the downloaded archive file using the following command:
@@ -46,14 +49,16 @@ sudo adduser sonar
 # or
 sudo useradd sonar
 ```
-
 ### Step 5.2: Verify Sonar User Creation
 Check whether the sonar user is created using the `id` command:
 ```bash
 sudo id sonar
 ```
-
-### Step 5.3: Change Ownership of the Sonar Directory
+### Step 5.3 Creat ethe password for sonar user 
+```bash
+passwd sonar
+```
+### Step 5.4: Change Ownership of the Sonar Directory
 ```bash
 sudo chown -R sonar:sonar sonar
 ```
@@ -75,7 +80,13 @@ To check the status of SonarQube, use the following command under `/opt/sonar/bi
 ```bash
 sh sonar.sh status
 ```
+**Note:** If the RUN_AS_USER parameter is not added in the /opt/sonar/bin/linux-x86-64/sonar.sh file, switch to the Sonar user and then run SonarQube:
 
+```bash
+sudo su - sonar
+sh /opt/sonar/bin/linux-x86-64/sonar.sh start
+
+```
 ## Step 9: Stop SonarQube
 To stop SonarQube, use the following command under `/opt/sonar/bin/linux-x86-64/` directory:
 ```bash
@@ -112,15 +123,23 @@ Restart=on-abort
 [Install]
 WantedBy=multi-user.target
 ```
+## Change the Ownership of sonar.service
+```bash
+chown sonar:sonar /etc/systemd/system/sonar.service
+```
+## Change the Permissions of sonar.service
+```bash
+chmod 755 /etc/systemd/system/sonarqube.service
+```
 
 ## Step 12: Enable the SonarQube Service
 ```bash
-sudo systemctl enable sonar
+sudo systemctl enable sonarqube
 ```
 ## Step 13: Start the SonarQube Service
 To start the SonarQube service, use:
 ```bash
-sudo systemctl start sonar
+sudo systemctl start sonarqube
 # or
 sudo service sonar start
 ```
@@ -128,26 +147,24 @@ sudo service sonar start
 ## Step 14: Stop the SonarQube Service
 To stop the SonarQube service, use:
 ```bash
-sudo systemctl stop sonar
+sudo systemctl stop sonarqube
 # or
-sudo service sonar stop
+sudo service sonar sonarqube
 ```
 
 ## Step 15: Check the Status of the SonarQube Service
 ```bash
-sudo systemctl status sonar
+sudo systemctl status sonarqube
 # or
-sudo service sonar status
+sudo service sonar sonarqube
 ```
-
-
 > **Note:** If you are running as a service, you should stop the SonarQube shell script under `/opt/sonar/bin/linux-x86-64`. Otherwise, the service won't be up and running.
 
 ## Step 16: Restart the SonarQube Service
 ```bash
-sudo systemctl restart sonar
+sudo systemctl restart sonarqube
 # or
-sudo service sonar restart
+sudo service sonarqube restart
 ```
 
 ## Step 17: Enable Port 9000
@@ -264,7 +281,7 @@ Once connected to the PostgreSQL instance, run the following SQL commands:
 CREATE DATABASE sonarqube;
 
 -- Create a new user
-CREATE USER sonaruser WITH PASSWORD 'your_password';
+CREATE USER sonaruser WITH PASSWORD 'p7tl6P7Jnpvi3l5';
 
 -- Grant permissions
 GRANT ALL PRIVILEGES ON DATABASE sonarqube TO sonaruser;
@@ -293,7 +310,13 @@ Find and update the following lines:
 # Database settings
 sonar.jdbc.url=jdbc:postgresql://<endpoint>:5432/sonarqube
 sonar.jdbc.user=sonaruser
-sonar.jdbc.password=your_password
+sonar.jdbc.password=p7tl6P7Jnpvi3l5
+```
+Uncomment the Java Options in sonar.properties
+Open the sonar.properties file and uncomment the following line:
+```properties
+
+sonar.ce.javaOpts=-Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError
 ```
 
 ### Step 7: Restart SonarQube
