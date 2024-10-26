@@ -3,6 +3,13 @@
 
 In this session, we will discuss how to install Jenkins on Linux Serever.
 
+**Prerequisites**
+
+1. Amazon Linux 2023 Server
+2.  ALB and Target Group
+3.  Route 53
+
+
 #### Step 1: Install Java
 
 First, install Java using the command below:
