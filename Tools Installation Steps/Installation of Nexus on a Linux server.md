@@ -193,11 +193,11 @@ After the first login, reset the default password as prompted and disable anonym
 
 
 ### Step 22: Create the Target Group
-Create a target group and add the instance with port `8080`. Set the health check path to `/login`.
+Create a target group and add the instance with port `8081`. Set the health check path to `/`.
 
 - **Target Group Name:** `nexus-tg`
 
-### Step 23: Create the Load Balancer
+### Step 23: Create the Internal ALB (Application Load Balancer)
 Create the internal load balancer and add listeners for both HTTP (`80`) and HTTPS (`443`).
 
 - **Load Balancer Name:** `nexus-alb`
