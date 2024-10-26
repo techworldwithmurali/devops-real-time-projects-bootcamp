@@ -5,6 +5,9 @@ In this guide, we will go over how to install Nexus 3 on  Linux Server
 ## Prerequisites:
 - Sudo privileges required to install packages.
 - Minimum of 2 vCPUs and 4 GB of memory.
+- Amazon Linux 2023 Server
+- ALB and Target Group
+- Route 53
 
 ## Steps:
 
