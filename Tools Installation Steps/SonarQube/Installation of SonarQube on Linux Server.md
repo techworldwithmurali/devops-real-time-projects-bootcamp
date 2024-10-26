@@ -225,3 +225,6 @@ Create an A record in Route 53 to point to the SonarQube internal load balancer.
 You can access SonarQube using the following URL:
 
 - **URL:** https://sonarqube.techworldwithmurali.in
+
+### Final Step: SonarQube Dashboard
+Congratulations! You have successfully installed SonarQube 9.9.7. If you face any issues during installation, feel free to reach out in the comment box.
