@@ -10,12 +10,14 @@ In this session, we will discuss how to install Jenkins on Linux Serever.
 3.  Route 53
 
 
-#### Step 1: Install Java
+#### Step 1: Install Java 11 or Java 17
 
 First, install Java using the command below:
 
 ```bash
-sudo yum install java-11-amazon-corretto-devel
+sudo yum install java-11-amazon-corretto-devel -y
+
+sudo yum install java-17-amazon-corretto-devel -y
 ```
 
 
