@@ -4,6 +4,10 @@ In this session, we are going to discuss the Installation of Tomcat  on Linux Se
 
 #### Prerequisites
 - You must be logged in via SSH as a sudo or root user to install the packages.
+- Amazon Linux 2023 Server
+- ALB and Target Group
+- Route 53
+- ACM
 
 #### Step 1:  Install Java 17
 ```bash
