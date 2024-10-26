@@ -5,6 +5,9 @@ In this session, we are going to discuss the installation of SonarQube 9.9.7 (Co
 ## Prerequisites
 - Your user must have sudo privileges to be able to install the packages.
 - Minimum 2 VCPU & 4 GB Memory.
+- Amazon Linux 2023 Server
+- ALB and Target Group
+- Route 53
 
 > **Note:** If you are installing SonarQube 7.1 (or newer), make sure it is run as a non-root user. Newer versions of Elasticsearch cannot be run as root.
 
@@ -208,7 +211,7 @@ Create a target group and add the instance with port `9000`. Set the health chec
 
 - **Target Group Name:** `sonarqube-tg`
 
-### Step 22: Create the Load Balancer
+### Step 22: Create the Internal ALB (Application Load Balancer)
 Create the internal load balancer and add listeners for both HTTP (`80`) and HTTPS (`443`).
 
 - **Load Balancer Name:** `sonarqube-alb`
