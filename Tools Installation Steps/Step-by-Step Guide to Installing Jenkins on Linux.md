@@ -192,7 +192,7 @@ Create a target group and add the instance with port 8080. Set the health check 
 
 **Target Group Name:** `jenkins-tg`
 
-#### Step 18: Create the Load Balancer
+#### Step 18: Create the Internal ALB (Application Load Balancer)
 
 Create the load balancer and add listeners for both HTTP (80) and HTTPS (443).
 
@@ -200,7 +200,7 @@ Create the load balancer and add listeners for both HTTP (80) and HTTPS (443).
 
 #### Step 19: Create the A Record in Route 53
 
-Create an A record in Route 53 to point to the Jenkins load balancer.
+Create an A record in Route 53 to point to the Jenkins Internal load balancer.
 
 **Record Name:** `jenkins.techworldwithmurali.in`
 
