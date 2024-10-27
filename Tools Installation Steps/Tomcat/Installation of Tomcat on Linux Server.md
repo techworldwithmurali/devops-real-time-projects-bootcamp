@@ -9,15 +9,15 @@ In this session, we are going to discuss the Installation of Tomcat  on Linux Se
 - Route 53
 - ACM
 
-#### Step 1:  Install Java 17
+#### Step 1:  Install Java 11
 ```bash
-[root@ip-172-31-89-37 ~]# sudo yum install java-17-amazon-corretto-devel -y
+sudo yum install java-11-amazon-corretto-devel -y
 ```
 
 #### Step 1.1: Check Java Installation
 Check whether Java is installed using the following command: 
 ```bash
-[root@ip-172-31-89-37 ~]# sudo java -version
+sudo java -version
 ```
 
 #### Step 2: Download Tomcat 9
@@ -25,13 +25,13 @@ Go to the Tomcat official page and download the Tomcat 9.0.96 binary tar file in
 
 - **URL:** [Apache Tomcat 9.0.96](https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.96/bin/)
 ```bash
-[root@ip-172-31-89-37 ~]# cd /opt/
-[root@ip-172-31-89-37 opt]# wget https://archive.apache.org/dist/tomcat/tomcat-7/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz
+ cd /opt/
+wget https://archive.apache.org/dist/tomcat/tomcat-7/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz
 ```
 #### Step 3: Untar Tomcat
 Untar the Tomcat using the following command:
 ```bash
-[root@ip-172-31-89-37 opt]# sudo tar -xvf apache-tomcat-9.0.96.tar.gz
+sudo tar -xvf apache-tomcat-9.0.96.tar.gz
 ```
 > **Note:** 
 > - `x` = extract 
@@ -41,7 +41,7 @@ Untar the Tomcat using the following command:
 #### Step 4: Rename Tomcat Directory
 Rename the Tomcat directory using the following command:
 ```bash
-[root@ip-172-31-89-37 opt]# sudo mv apache-tomcat-9.0.96 tomcat
+sudo mv apache-tomcat-9.0.96 tomcat
 ```
 
 #### Step 5: Create Tomcat User
@@ -49,30 +49,30 @@ As a good security practice, it is not recommended to run Tomcat with root privi
 
 ##### Step 5.1: Create Tomcat User
 ```bash
-[root@ip-172-31-89-37 opt]# sudo useradd tomcat
+sudo useradd tomcat
 ```
 
 #### Step 5.2: Change Ownership of Tomcat Directory
 ```bash
-[root@ip-172-31-89-37 opt]# sudo chown -R tomcat:tomcat tomcat/
+sudo chown -R tomcat:tomcat tomcat/
 ```
 
 #### Step 6: Start Tomcat
 To start Tomcat, use the following command:
 ```bash
-[root@ip-172-31-89-37 opt]# sudo sh /opt/tomcat/bin/startup.sh
+sudo sh /opt/tomcat/bin/startup.sh
 ```
 
 #### Step 7: Stop Tomcat
 To stop Tomcat, use the following command:
 ```bash
-[root@ip-172-31-89-37 opt]# sudo sh /opt/tomcat/bin/shutdown.sh
+sudo sh /opt/tomcat/bin/shutdown.sh
 ```
 
 #### Step 8: Setup Tomcat as a Service
 Create the `tomcat.service` file under the `/etc/systemd/system/` directory:
 ```bash
-[root@ip-172-31-89-37 opt]# sudo vim /etc/systemd/system/tomcat.service
+sudo vim /etc/systemd/system/tomcat.service
 ```
 #### Contents of `tomcat.service` File
 ```ini
@@ -93,43 +93,43 @@ WantedBy=multi-user.target
 
 #### Step 9: Enable Tomcat Service
 ```bash
-[root@ip-172-31-89-37 opt]# sudo systemctl enable tomcat
+sudo systemctl enable tomcat
 ```
 
 #### Step 10: Start Tomcat Service
 ```bash
-[root@ip-172-31-89-37 opt]# sudo systemctl start tomcat
+sudo systemctl start tomcat
 ```
 **OR**
 ```bash
-[root@ip-172-31-89-37 opt]# sudo service tomcat start
+sudo service tomcat start
 ```
 
 #### Step 11: Stop Tomcat Service
 ```bash
-[root@ip-172-31-89-37 opt]# sudo systemctl stop tomcat
+sudo systemctl stop tomcat
 ```
 **OR**
 ```bash
-[root@ip-172-31-89-37 opt]# sudo service tomcat stop
+sudo service tomcat stop
 ```
 
 #### Step 12: Check Tomcat Service Status
 ```bash
-[root@ip-172-31-89-37 opt]# sudo systemctl status tomcat
+sudo systemctl status tomcat
 ```
 **OR**
 ```bash
-[root@ip-172-31-89-37 opt]# sudo service tomcat status
+sudo service tomcat status
 ```
 
 #### Step 13: Restart Tomcat Service
 ```bash
-[root@ip-172-31-89-37 opt]# sudo systemctl restart tomcat
+sudo systemctl restart tomcat
 ```
 **OR**
 ```bash
-[root@ip-172-31-89-37 opt]# sudo service tomcat restart
+sudo service tomcat restart
 ```
 
 #### Step 14: Enable Port 8080
@@ -159,7 +159,7 @@ http://54.175.240.24:8080
 #### Step 16: Configure the Management Interface
 Add users and roles in `tomcat-users.xml` under the `/opt/tomcat/conf/` directory.
 ```bash
-[root@ip-172-31-89-37 opt]# sudo vim /opt/tomcat/conf/tomcat-users.xml
+sudo vim /opt/tomcat/conf/tomcat-users.xml
 ```
 
 #### Add the Following Users and Roles
