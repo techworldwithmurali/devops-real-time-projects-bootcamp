@@ -16,7 +16,7 @@ In this guide, we will go over how to install Nexus 3 on  Linux Server
 Install Java using the command below:
 
 ```bash
-sudo sudo yum install java-17-amazon-corretto-devel -y
+sudo yum install java-11-amazon-corretto-devel -y
 ```
 
 Check Java installation:
@@ -29,7 +29,7 @@ sudo java -version
 Download the latest version of Nexus 3 in the `/opt` directory:
 
 ```bash
-sudo wget https://download.sonatype.com/nexus/3/nexus-3.73.0-12-unix.tar.gz
+sudo wget https://download.sonatype.com/nexus/3/nexus-3.70.2-01-unix.tar.gz
 ```
 Reference link: https://help.sonatype.com/en/download-archives---repository-manager-3.html
 
@@ -37,14 +37,14 @@ Reference link: https://help.sonatype.com/en/download-archives---repository-mana
 Extract the archive:
 
 ```bash
-sudo tar -xvf nexus-3.73.0-12-unix.tar.gz
+sudo tar -xvf nexus-3.70.2-01-unix.tar.gz
 ```
 
 ### Step 4: Rename the Nexus Folder
 Rename the folder for convenience:
 
 ```bash
-sudo mv nexus-3.73.0-12 nexus
+sudo mv nexus-3.70.2-01 nexus
 ```
 
 ### Step 5: Create a Nexus User
