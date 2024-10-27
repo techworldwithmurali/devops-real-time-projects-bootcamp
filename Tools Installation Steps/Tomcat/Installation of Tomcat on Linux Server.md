@@ -137,8 +137,8 @@ To access the Tomcat GUI, first enable the `8080` port number.
 
 #### For On-Premise Server
 ```bash
-[root@ip-172-31-89-37 ~]# sudo firewall-cmd --permanent --zone=public --add-port=8080/tcp
-[root@ip-172-31-89-37 ~]# sudo firewall-cmd --reload
+sudo firewall-cmd --permanent --zone=public --add-port=8080/tcp
+sudo firewall-cmd --reload
 ```
 
 #### For AWS EC2 Instance
