@@ -45,7 +45,7 @@ Use the PostgreSQL client to connect to your RDS instance. Replace `<endpoint>`,
 
 ```bash
 psql -h <endpoint> -U <username> -d postgres
-psql -h sonarqube.hhuikyyfujhty.us-east-1.rds.amazonaws.com -U postgress
+psql -h infra-sonaruqbe.cr6o2yyc8wq0.us-east-1.rds.amazonaws.com -U postgress
 ```
 
 You’ll be prompted for your password. Once logged in, you can run SQL commands.
