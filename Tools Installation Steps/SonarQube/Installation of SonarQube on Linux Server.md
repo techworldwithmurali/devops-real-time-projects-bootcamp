@@ -108,7 +108,7 @@ Create the `sonar.service` file under the `/etc/systemd/system/` directory:
 sudo vim /etc/systemd/system/sonarqube.service
 ```
 
-### Content of `sonar.service` file:
+### Content of `sonarqube.service` file:
 ```ini
 [Unit]
 Description=SonarQube service
