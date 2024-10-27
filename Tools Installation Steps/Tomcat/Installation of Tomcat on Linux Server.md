@@ -153,7 +153,7 @@ http://your_ip_or_domain:8080
 ```
 **Example:** 
 ```
-http://54.175.240.24:8080
+http://10.70.162.94:8080
 ```
 
 #### Step 16: Configure the Management Interface
@@ -164,7 +164,6 @@ sudo vim /opt/tomcat/conf/tomcat-users.xml
 
 #### Add the Following Users and Roles
 ```xml
-<tomcat-users>
     <role rolename="manager-gui" />
     <role rolename="manager-status" />
     <role rolename="manager-script" />
@@ -173,7 +172,6 @@ sudo vim /opt/tomcat/conf/tomcat-users.xml
     <role rolename="admin-script" />
     
     <user username="tomcat" password="tomcat" roles="manager-gui, admin-gui, manager-status, manager-script, manager-jmx"/>
-</tomcat-users>
 ```
 
 #### Step 17: Restart Tomcat Service
