@@ -12,7 +12,7 @@ In this guide, we will go over how to install Nexus 3 on  Linux Server
 
 ## Steps:
 
-### Step 1: Install Java 17
+### Step 1: Install Java 11
 Install Java using the command below:
 
 ```bash
