@@ -63,18 +63,18 @@ passwd sonar
 ```
 ### Step 5.4: Change Ownership of the Sonar Directory
 ```bash
-sudo chown -R sonar:sonar sonar
+sudo chown -R sonar:sonar sonarqube
 ```
 
 ## Step 6: Update SonarQube Configuration
-By default, SonarQube will run as a root user. You need to update the Sonar user under `/opt/sonar/bin/linux-x86-64/sonar.sh`.
+By default, SonarQube will run as a root user. You need to update the Sonar user under `/opt/sonarqube/bin/linux-x86-64/sonar.sh`.
 
 Uncomment the `RUN_AS_USER` parameter and set it to the sonar user:
 ```bash
 RUN_AS_USER="sonar"
 ```
 ## Step 7: Run SonarQube
-Switch to the sonar user and run the SonarQube shell script (`sonar.sh`) under `/opt/sonar/bin/linux-x86-64/` directory.
+Switch to the sonar user and run the SonarQube shell script (`sonar.sh`) under `/opt/sonarqube/bin/linux-x86-64/` directory.
 
 > **Note:** If you encounter a `java.lang.IllegalStateException` error during SonarQube startup, delete the `tmp` directory under `/opt/sonar` and start SonarQube again.
 
