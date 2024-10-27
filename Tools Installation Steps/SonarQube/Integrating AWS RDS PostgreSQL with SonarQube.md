@@ -14,6 +14,9 @@ SonarQube supports specific versions of PostgreSQL for its database backend. As 
 
 ### Step 1: Create the AWS RDS PostgreSQL 14 Instance
 
+**Note:** Create the subnet group first.
+Name: PostgreSQL-data-subnets
+
 1. **Log in to AWS Management Console**.
 2. Navigate to **RDS**.
 3. Click on **Create database**.
