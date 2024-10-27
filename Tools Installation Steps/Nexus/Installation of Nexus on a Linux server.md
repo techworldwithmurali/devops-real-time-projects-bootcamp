@@ -31,6 +31,7 @@ Download the latest version of Nexus 3 in the `/opt` directory:
 ```bash
 sudo wget https://download.sonatype.com/nexus/3/nexus-3.73.0-12-unix.tar.gz
 ```
+Reference link: https://help.sonatype.com/en/download-archives---repository-manager-3.html
 
 ### Step 3: Extract the Downloaded Archive
 Extract the archive:
