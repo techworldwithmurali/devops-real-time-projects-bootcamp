@@ -105,7 +105,7 @@ sh sonar.sh restart
 ## Step 11: Setup SonarQube as a Service
 Create the `sonar.service` file under the `/etc/systemd/system/` directory:
 ```bash
-sudo vim /etc/systemd/system/sonar.service
+sudo vim /etc/systemd/system/sonarqube.service
 ```
 
 ### Content of `sonar.service` file:
