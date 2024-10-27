@@ -40,7 +40,7 @@ unzip sonarqube-9.9.7.96285.zip
 ## Step 4: Rename the SonarQube Folder
 Rename the SonarQube folder using the following command:
 ```bash
-mv sonarqube-9.9.7.96285 sonar
+mv sonarqube-9.9.7.96285 sonarqube
 ```
 
 ## Step 5: Create a New User for SonarQube
@@ -79,25 +79,25 @@ Switch to the sonar user and run the SonarQube shell script (`sonar.sh`) under `
 > **Note:** If you encounter a `java.lang.IllegalStateException` error during SonarQube startup, delete the `tmp` directory under `/opt/sonar` and start SonarQube again.
 
 ## Step 8: Check SonarQube Status
-To check the status of SonarQube, use the following command under `/opt/sonar/bin/linux-x86-64` directory:
+To check the status of SonarQube, use the following command under `/opt/sonarqube/bin/linux-x86-64` directory:
 ```bash
 sh sonar.sh status
 ```
-**Note:** If the RUN_AS_USER parameter is not added in the /opt/sonar/bin/linux-x86-64/sonar.sh file, switch to the Sonar user and then run SonarQube:
+**Note:** If the RUN_AS_USER parameter is not added in the /opt/sonarqube/bin/linux-x86-64/sonar.sh file, switch to the Sonar user and then run SonarQube:
 
 ```bash
 sudo su - sonar
-sh /opt/sonar/bin/linux-x86-64/sonar.sh start
+sh /opt/sonarqube/bin/linux-x86-64/sonar.sh start
 
 ```
 ## Step 9: Stop SonarQube
-To stop SonarQube, use the following command under `/opt/sonar/bin/linux-x86-64/` directory:
+To stop SonarQube, use the following command under `/opt/sonarqube/bin/linux-x86-64/` directory:
 ```bash
 sh sonar.sh stop
 ```
 
 ## Step 10: Restart SonarQube
-To restart SonarQube, use the following command under `/opt/sonar/bin/linux-x86-64` directory:
+To restart SonarQube, use the following command under `/opt/sonarqube/bin/linux-x86-64` directory:
 ```bash
 sh sonar.sh restart
 ```
@@ -119,8 +119,8 @@ Type=forking
 LimitNOFILE=65536
 User=sonar
 Group=sonar
-ExecStart=/opt/sonar/bin/linux-x86-64/sonar.sh start
-ExecStop=/opt/sonar/bin/linux-x86-64/sonar.sh stop
+ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start
+ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
 Restart=on-abort
 
 [Install]
@@ -128,7 +128,7 @@ WantedBy=multi-user.target
 ```
 ## Change the Ownership of sonar.service
 ```bash
-chown sonar:sonar /etc/systemd/system/sonar.service
+chown sonar:sonar /etc/systemd/system/sonarqube.service
 ```
 ## Change the Permissions of sonar.service
 ```bash
