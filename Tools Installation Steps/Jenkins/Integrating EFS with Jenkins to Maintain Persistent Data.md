@@ -15,3 +15,10 @@
    ```
 
 5. **Reboot for Testing**: Restart the server to check if the EFS mounts automatically.
+6. **Access Jenkins**
+
+Access Jenkins using the following URL:
+
+```
+https://jenkins.techworldwithmurali.in
+```
