@@ -1,4 +1,4 @@
-# Java 11 Installation Script for Amazon Linux 2023
+### Java 11 Installation Script for Amazon Linux 2023
 
 ```bash
 #!/bin/bash
