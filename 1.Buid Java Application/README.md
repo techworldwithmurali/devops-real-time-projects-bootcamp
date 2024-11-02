@@ -6,7 +6,7 @@ This document outlines the various methods to build the application.
 
 Please find the details below:
 
-| Name                          | Branch                                | GitHub URL                       |
+| Type                          | Branch                                | GitHub URL                       |
 |-------------------------------|---------------------------------------|----------------------------------|
 | Manual Process                | build               | https://github.com/techworldwithmurali/microservice-one/tree/build |
 | Using a Jenkins Freestyle Job | build-freestyle           | https://github.com/techworldwithmurali/microservice-one/tree/build-freestyle |
