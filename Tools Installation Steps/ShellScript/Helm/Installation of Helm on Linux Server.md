@@ -1,7 +1,7 @@
 ### Installation of Helm on Linux Server
 
 #### Note: For the latest releases, visit the official Helm website: 
-#### https://github.com/helm/helm/releases
+ **Official Webiste:**: https://github.com/helm/helm/releases
 
 ```bash
 #!/bin/bash
