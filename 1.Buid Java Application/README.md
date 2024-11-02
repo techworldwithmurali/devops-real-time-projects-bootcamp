@@ -14,6 +14,3 @@ Please find the details below:
 
 If you have any questions or need further clarification, please let me know.
 
---- 
-
-Let me know if you need any more adjustments!
