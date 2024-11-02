@@ -1,12 +1,12 @@
-# Installation of Java 17 on Linux Server
+### Installation of Java 17 on Linux Server
 
 This guide explains how to install Java 17 on Amazon Linux 2023.
 
-## Prerequisites
+### Prerequisites
 
 - An Amazon Linux 2023 instance with sudo privileges.
 
-## Installation Steps
+### Installation Steps
 
 1. **Install Java 17**
 
