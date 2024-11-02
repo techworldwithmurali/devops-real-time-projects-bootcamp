@@ -1,4 +1,6 @@
-### Installation of Java 11 On Amazon Linux
+#### Installation of Java 11 On Amazon Linux
+
+**Note:** Offucal Webiste: https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/amazon-linux-install.html
 
 ```bash
 #!/bin/bash
