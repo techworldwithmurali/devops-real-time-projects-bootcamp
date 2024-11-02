@@ -1,5 +1,8 @@
 ### Installation of AWS Cli on Linux Server
 
+##### Note: For the latest releases and more information, visit the official  website:
+**Official Webiste:** https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
 Here's a shell script to install the AWS CLI on Linux:
 
 ```bash
