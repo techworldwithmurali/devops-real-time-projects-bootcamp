@@ -1,4 +1,6 @@
 ### Installation of kubectl on Linux Server
+##### Note: For the latest releases and more information, visit the official  website:
+**Official Webiste:** https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
 
 ```bash
 #!/bin/bash
