@@ -1,4 +1,4 @@
-###
+### Build the Java Application
 
 Hello everyone,
 
@@ -13,4 +13,3 @@ Please find the details below:
 | Using Jenkins Pipeline        | build-jenkinsfile | https://github.com/techworldwithmurali/microservice-one/tree/build-jenkinsfile |
 
 If you have any questions or need further clarification, please let me know.
-
