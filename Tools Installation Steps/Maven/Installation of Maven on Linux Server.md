@@ -40,12 +40,12 @@ To install Maven on a Linux server, follow these steps:
    - Create a new file for Maven environment variables:
 
 **vim  /etc/profile.d/maven.sh**
-    
+  ```  
 # Apache Maven Environment Variables
 # MAVEN_HOME for Maven 1 - M2_HOME for Maven 2
 export M2_HOME=/opt/maven
 export PATH=${M2_HOME}/bin:${PATH}
-
+```
      
    - Set execute permissions for the configuration file:
      ```
