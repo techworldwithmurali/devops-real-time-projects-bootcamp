@@ -1,5 +1,8 @@
 #### Installation of Git on Linux Server
 
+##### Note: For the latest releases and more information, visit the official  website:
+**Official Webiste:** https://git-scm.com/downloads/linux
+
 Here's a shell script to install Git on Linux Server and verify the installation:
 
 ```bash
