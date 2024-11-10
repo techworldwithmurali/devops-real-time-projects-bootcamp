@@ -2,7 +2,7 @@
 # Title: Kubernetes CLI (kubectl) Installation Script
 
 # Step 1: Set the Kubernetes version
-KUBECTL_VERSION=1.31.0
+KUBECTL_VERSION=1.29.0
 
 # Step 2: Download the kubectl binary from Amazon S3
 echo "Downloading kubectl binary for Kubernetes version $KUBECTL_VERSION..."
