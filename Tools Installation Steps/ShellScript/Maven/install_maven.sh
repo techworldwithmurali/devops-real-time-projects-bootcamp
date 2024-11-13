@@ -3,7 +3,7 @@
 # Prerequisites: Ensure the user has sudo privileges to install packages
 
 # Maven version to install
-MAVEN_VERSION=3.8.6
+MAVEN_VERSION=3.9.9
 
 # Step 1: Install Java 17
 echo "Installing Java 17..."
