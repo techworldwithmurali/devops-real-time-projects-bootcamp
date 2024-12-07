@@ -1,4 +1,4 @@
-# Ingress Helm Chart Setup for Jenkins on EKS
+## Ingress Helm Chart Setup for Jenkins on EKS
 
 This guide demonstrates how to set up an Ingress resource for Jenkins using a Helm chart on AWS EKS.
 
