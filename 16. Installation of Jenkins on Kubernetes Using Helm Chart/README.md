@@ -24,8 +24,6 @@
      ```bash
      kubectl get pods -n kube-system -l app=efs-csi-controller
      ```
-7. **AWS ALB Ingress Controller: Deployed to the cluster.**
-8. **ExternalDNS:** Configured for managing DNS entries.
 ### Step-by-Step Instructions:
 
 **Official GitHub repository for the Jenkins Helm Chart.** https://github.com/jenkinsci/helm-charts/tree/main/charts/jenkins
