@@ -1,0 +1,110 @@
+### Installing SonarQube on Kubernetes Using a Helm Chart
+
+To install SonarQube on Kubernetes using Helm, follow these steps:
+
+### Prerequisites
+
+Before you begin, ensure the following tools and resources are available:
+
+- **Install Helm**: Ensure Helm is installed on your system.
+- **Install kubectl**: Ensure kubectl is installed for interacting with Kubernetes clusters.
+- **Install AWS CLI**: Ensure AWS CLI is installed for AWS-related operations.
+- **Create AWS EKS Cluster**: Ensure an EKS cluster is already created.
+- **AWS RDS PostgreSQL**: Ensure an AWS RDS PostgreSQL instance is created.
+
+**For more information, visit the [official Helm chart GitHub repository](https://github.com/SonarSource/helm-chart-sonarqube/tree/master).
+
+**For more information, visit the: https://www.sonarsource.com/products/sonarqube/downloads/
+
+---
+
+## Step-by-Step Instructions
+
+### Step 0: Create the SonarQube Namespace
+```bash
+kubectl create ns tools
+```
+
+---
+
+### Step 1: Add the SonarQube Helm Repository
+Add the official Helm chart repository for SonarQube:
+```bash
+helm repo add sonarqube https://SonarSource.github.io/helm-chart-sonarqube
+helm repo update
+```
+
+---
+
+### Step 2: Install SonarQube with Default Values
+Deploy SonarQube using default configurations:
+```bash
+helm upgrade --install -f values.yaml  sonarqube sonarqube/sonarqube -n tools
+```
+- Installs the latest SonarQube version with an embedded PostgreSQL database.
+- Recommended to install a stable version like `9.9.8` rather than the latest.
+
+---
+
+### Step 3: Update `values.yaml` for Required SonarQube Version
+Modify `values.yaml`:
+```yaml
+image:
+  repository: sonarqube
+  tag: 9.9.7-developer
+  pullPolicy: IfNotPresent
+```
+Then, upgrade the installation:
+```bash
+helm upgrade --install -f values.yaml  sonarqube sonarqube/sonarqube -n tools
+```
+
+---
+
+### Step 4: Disable Embedded PostgreSQL
+To use AWS RDS PostgreSQL, disable the embedded PostgreSQL:
+```yaml
+postgresql:
+  enabled: false
+```
+Upgrade the installation:
+```bash
+helm upgrade --install -f values.yaml  sonarqube sonarqube/sonarqube -n tools
+```
+
+---
+
+### Step 5: Add Database Configuration in `values.yaml`
+Configure the external PostgreSQL database:
+```yaml
+jdbcOverwrite:
+  enabled: true
+  jdbcUrl: "jdbc:postgresql://sonarqube-rds.techworldwithmurali.in:5432/sonarqube"
+  jdbcUsername: "postgres"
+  jdbcPassword: "mPqoZDTuKsGPYCAru5"  # Secure this using Kubernetes Secrets
+```
+Run the upgrade command:
+```bash
+helm upgrade --install -f values.yaml  sonarqube sonarqube/sonarqube -n tools
+```
+
+---
+
+### Step 6: Update Service Type
+Change the service type to `NodePort` in `values.yaml`:
+```yaml
+service:
+  type: NodePort
+```
+Upgrade the installation:
+```bash
+helm upgrade --install -f values.yaml  sonarqube sonarqube/sonarqube -n tools
+```
+
+---
+
+### Step 7: Access SonarQube Using NodePort
+Access SonarQube at:
+```
+http://<node-ip>:<node-port>
+```
