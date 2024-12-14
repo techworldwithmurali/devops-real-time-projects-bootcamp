@@ -4,7 +4,7 @@ Hello everyone,
 
 This document outlines the various methods to build the application.
 
-Please find the details below:
+Please find below the details for microservice-one:
 
 | Type                          | Branch                                | GitHub URL                       |
 |-------------------------------|---------------------------------------|----------------------------------|
@@ -13,3 +13,15 @@ Please find the details below:
 | **Using Jenkins Pipeline**        | build-jenkinsfile | https://github.com/techworldwithmurali/microservice-one/tree/build-jenkinsfile |
 
 If you have any questions or need further clarification, please let me know.
+
+
+Please find below the details for user registration:
+
+| Type                          | Branch                                | GitHub URL                       |
+|-------------------------------|---------------------------------------|----------------------------------|
+| **Manual Process**                | build               | https://github.com/techworldwithmurali/user-registration/tree/build |
+| **Using a Jenkins Freestyle Job** | build-freestyle           | https://github.com/techworldwithmurali/user-registration/tree/build-freestyle |
+| **Using Jenkins Pipeline**        | build-jenkinsfile | https://github.com/techworldwithmurali/user-registration/tree/build-jenkinsfile |
+
+If you have any questions or need further clarification, please let me know.
+
