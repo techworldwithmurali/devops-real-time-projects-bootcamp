@@ -4,7 +4,7 @@ Hello everyone,
 
 This document outlines the various methods to build the application.
 
-Please find below the details for microservice-one:
+Please find below the details for microservice-one application:
 
 | Type                          | Branch                                | GitHub URL                       |
 |-------------------------------|---------------------------------------|----------------------------------|
@@ -15,7 +15,7 @@ Please find below the details for microservice-one:
 If you have any questions or need further clarification, please let me know.
 
 
-Please find below the details for user registration:
+Please find below the details for user registration application:
 
 | Type                          | Branch                                | GitHub URL                       |
 |-------------------------------|---------------------------------------|----------------------------------|
