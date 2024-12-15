@@ -83,7 +83,3 @@ step-by-step guide to create an AWS RDS MySQL instance with your specific config
    ```
 
    You should see **usermanagment** listed as one of the databases in the result.
-
----
-
-With these steps, your **AWS RDS MySQL 8.0.34** instance will be up and running with the specified configuration (VPC, Security Group, Subnet Group, Parameter Group, etc.) and the database **usermanagment** already created.
