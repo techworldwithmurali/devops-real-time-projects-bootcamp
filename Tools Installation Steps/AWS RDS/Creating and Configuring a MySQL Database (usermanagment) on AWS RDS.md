@@ -63,23 +63,37 @@ step-by-step guide to create an AWS RDS MySQL instance with your specific config
 1. Once the creation process starts, you will see the status of the database change to **creating**. Wait for the instance to become **Available**.
 2. Once it is available, the status will change to **Available** in the RDS dashboard.
 
-#### Step 10: Connect to the MySQL Database
-1. After the database is available, navigate to the **Databases** section of the RDS console.
-2. Click on the database instance `rds-mysql-dev` to view its details.
-3. Copy the **Endpoint** and **Port** of the database instance.
-4. Use a MySQL client (like **MySQL Workbench**, **DBeaver**, or the `mysql` command-line client) to connect:
+#### Step 10: Create a CNAME in Route 53 for the RDS Instance
 
-   ```bash
-   mysql -h <RDS-endpoint> -P <port> -u admin -p
-   ```
+1. Navigate to the **Route 53** service in the AWS Management Console.  
+2. Select the hosted zone for your domain.  
+3. Click on **Create Record** and choose **CNAME** as the record type.  
+4. Enter the desired subdomain (e.g., `rds-dev.techworldwithmurali.in`) and set the value to the **RDS endpoint** (e.g., `rds-mysql-dev.cpigug8q8as5.us-east-1.rds.amazonaws.com`).   
+5. Save the record.  
 
-   When prompted, enter the password `oAdtzSkyZ7geWJRqqio`.
+This will allow you to connect to the RDS instance using the CNAME instead of the endpoint.
 
-#### Step 11: Verify the Database Creation
-1. After successfully connecting to the MySQL instance, run the following SQL command to verify that the **usermanagment** database was created:
+#### Step 11: Set Up a New Connection in MySQL Workbench
+1. In the **MySQL Workbench** window, click on the **"+" icon** next to **MySQL Connections** to set up a new connection.
+2. In the **Set up a New Connection** window:
+   - **Connection Name**: Choose a name for your connection (e.g., `rds-mysql-dev`).
+   - **Connection Method**: Select **Standard (TCP/IP)**.
+   - **Hostname**: Paste the **Endpoint** of your RDS instance that you copied earlier.
+   - **Port**: Enter the **Port** (default is `3306`).
+   - **Username**: Enter `admin` (the master username you set during RDS creation).
+   - **Password**: Click on **Store in Vault...** and enter the password `oAdtzSkyZ7geWJRqqio`.
+
+3. Click **Test Connection** to ensure MySQL Workbench can connect to the RDS instance. If the connection is successful, click **OK**.
+
+#### Step 12: Connect to the Database Instance
+1. After setting up the connection, click on the new connection (e.g., `rds-mysql-dev`) in the **MySQL Connections** section to open the connection.
+
+#### Step 13: Verify the Database Creation
+1. Once connected, the **SQL Editor** will open.
+2. To verify that the **usermanagment** database was created, run the following SQL command:
 
    ```sql
    SHOW DATABASES;
    ```
 
-   You should see **usermanagment** listed as one of the databases in the result.
+3. Check the result. You should see **usermanagment** listed among the databases.
