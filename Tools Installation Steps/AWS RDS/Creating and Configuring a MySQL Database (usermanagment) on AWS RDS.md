@@ -73,7 +73,8 @@ step-by-step guide to create an AWS RDS MySQL instance with your specific config
 
 This will allow you to connect to the RDS instance using the CNAME instead of the endpoint.
 
-#### Step 11: Set Up a New Connection in MySQL Workbench
+#### Step 11: Connect to the RDS PostgreSQL Cluster and Verify the Database
+**Set Up a New Connection in MySQL Workbench**
 1. In the **MySQL Workbench** window, click on the **"+" icon** next to **MySQL Connections** to set up a new connection.
 2. In the **Set up a New Connection** window:
    - **Connection Name**: Choose a name for your connection (e.g., `rds-mysql-dev`).
