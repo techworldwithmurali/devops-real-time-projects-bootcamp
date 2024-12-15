@@ -8,8 +8,8 @@ Please find the details below:
 
 | Type                          | Branch                                | GitHub URL                       |
 |-------------------------------|---------------------------------------|----------------------------------|
-| **Manual Process**                | deploy-to-eks-dockerhub               | https://github.com/techworldwithmurali/microservice-one/tree/deploy-to-eks-dockerhub |
-| **Using a Jenkins Freestyle Job** | deploy-to-eks-dockerhub-freestyle           | https://github.com/techworldwithmurali/microservice-one/tree/deploy-to-eks-dockerhub-freestyle |
-| **Using Jenkins Pipeline**        | deploy-to-eks-dockerhub-jenkinsfile | https://github.com/techworldwithmurali/microservice-one/tree/deploy-to-eks-dockerhub-jenkinsfile |
+| **Manual Process**                | deploy-to-eks-dockerhub               | https://github.com/techworldwithmurali/user-registration/tree/deploy-to-eks-dockerhub |
+| **Using a Jenkins Freestyle Job** | deploy-to-eks-dockerhub-freestyle           | https://github.com/techworldwithmurali/user-registration/tree/deploy-to-eks-dockerhub-freestyle |
+| **Using Jenkins Pipeline**        | deploy-to-eks-dockerhub-jenkinsfile | https://github.com/techworldwithmurali/user-registration/tree/deploy-to-eks-dockerhub-jenkinsfile |
 
 If you have any questions or need further clarification, please let me know.
