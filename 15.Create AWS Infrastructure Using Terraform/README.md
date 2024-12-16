@@ -8,8 +8,8 @@ Please find the details below:
 
 | Type                          | Branch                                | GitHub URL                       |
 |-------------------------------|---------------------------------------|----------------------------------|
-| **Manual Process**                | infra              | https://github.com/techworldwithmurali/terraform-example.git |
-| **Using a Jenkins Freestyle Job** | infra-freestyle           | https://github.com/techworldwithmurali/terraform-example.git |
-| **Using Jenkins Pipeline**        | infra-jenkinsfile | https://github.com/techworldwithmurali/terraform-example.git |
+| **Manual Process**                | infra              | https://github.com/techworldwithmurali/terraform-example/tree/infra |
+| **Using a Jenkins Freestyle Job** | infra-freestyle           | https://github.com/techworldwithmurali/terraform-example/tree/infra-freestyle |
+| **Using Jenkins Pipeline**        | infra-jenkinsfile | https://github.com/techworldwithmurali/terraform-example/tree/infra-jenkinsfile |
 
 If you have any questions or need further clarification, please let me know.
