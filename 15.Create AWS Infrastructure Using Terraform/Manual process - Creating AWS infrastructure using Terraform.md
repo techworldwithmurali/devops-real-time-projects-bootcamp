@@ -16,7 +16,7 @@
 ### Step 1: Clone the GitHub repository
 ```xml
 GitHub URL: https://github.com/techworldwithmurali/terraform-example.git
-Branch Name: infra
+Branch Name: main
 ```
 
 ### Step 2: Initialize Terraform
