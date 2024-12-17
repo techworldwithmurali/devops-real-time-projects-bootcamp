@@ -1,4 +1,4 @@
-step-by-step guide to create an AWS RDS MySQL instance with your specific configurations:
+### step-by-step guide to create an AWS RDS MySQL instance 
 
 ### Prerequisites:
 - Make sure you have an active AWS account.
