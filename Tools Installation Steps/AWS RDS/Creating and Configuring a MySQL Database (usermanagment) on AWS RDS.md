@@ -14,6 +14,12 @@ step-by-step guide to create an AWS RDS MySQL instance with your specific config
 1. In the AWS Management Console, search for **RDS** in the search bar and select **RDS** to go to the RDS dashboard.
 
 #### Step 3: Create a New Database
+
+**Note:** Create the subnet group , parameter group and security group  first.  
+- **Subnet Group Name:** mysql-rds-dev-subnet-group
+- **Parameter group:** mysql-rds-dev-parameter-group
+- **Security Group Name:** mysql-rds-dev-sg
+  
 1. In the RDS dashboard, click on **Databases** in the left sidebar.
 2. Click the **Create database** button to start the creation process.
 
@@ -36,7 +42,7 @@ step-by-step guide to create an AWS RDS MySQL instance with your specific config
 
 ##### **Storage:**
 1. **Storage type:** Choose **General Purpose (SSD)**.
-2. Set the **Allocated storage** (e.g., 20 GB).
+2. Set the **Allocated storage** (e.g., 100 GB).
 3. Enable **Storage autoscaling** if required, which allows automatic expansion of storage as needed.
 
 #### Step 6: Configure Connectivity
