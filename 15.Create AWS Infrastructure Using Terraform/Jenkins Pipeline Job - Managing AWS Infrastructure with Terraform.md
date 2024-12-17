@@ -75,6 +75,6 @@ stage('Terraform Plan or Apply or Destroy') {
         }
 ```
 
-### Step 5: Verify whether the infrastructure is created or destroyed
+### Step 5: Verify whether the infrastructure has been created in the AWS Console.
 
 #### Congratulations. You have successfully created, applied, or destroyed the AWS infrastructure using Jenkins Pipeline with Terraform.
