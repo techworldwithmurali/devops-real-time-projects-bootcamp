@@ -32,7 +32,7 @@ Credentials: github-cred
 ```xml
 stage('Clone the Repository') {
             steps {
-                git branch: 'infra', credentialsId: 'github-cred', url: 'https://github.com/techworldwithmurali/terraform-example.git'
+                git branch: 'main', credentialsId: 'github-cred', url: 'https://github.com/techworldwithmurali/terraform-example.git'
             }
         }
 ```
