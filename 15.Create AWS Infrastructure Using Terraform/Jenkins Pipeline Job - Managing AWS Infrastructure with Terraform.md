@@ -23,7 +23,7 @@ Job Name: terraform-aws-infrastructure-pipeline
 ### Step 3: Configure the Git repository
 ```xml
 GitHub URL: https://github.com/techworldwithmurali/terraform-example.git
-Branch: infra
+Branch: main
 Credentials: github-cred
 ```
 
