@@ -21,7 +21,7 @@ Branch Name: main
 
 ### Step 2: Initialize Terraform
 ```bash
-cd infra/ec2
+cd dev/ec2
 terraform init
 ```
 
