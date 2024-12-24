@@ -40,7 +40,7 @@ stage('Clone the Repository') {
 ```xml
 stage('Terraform Init') {
             steps {
-                dir('infra/ec2') {
+                dir('dev/ec2') {
                     sh 'terraform init'
                 }
             }
@@ -54,17 +54,17 @@ stage('Terraform Plan or Apply or Destroy') {
                 script {
                     if (params.ACTION == 'plan') {
                         echo 'Executing Terraform plan...'
-                        dir('infra/ec2') {
+                        dir('dev/ec2') {
                             sh 'terraform plan -no-color'
                         }
                     } else if (params.ACTION == 'apply') {
                         echo 'Executing Terraform apply...'
-                        dir('infra/ec2') {
+                        dir('dev/ec2') {
                             sh 'terraform apply -no-color --auto-approve'
                         }
                     } else if (params.ACTION == 'destroy') {
                         echo 'Executing Terraform destroy...'
-                        dir('infra/ec2') {
+                        dir('dev/ec2') {
                             sh 'terraform destroy -no-color --auto-approve'
                         }
                     } else {
