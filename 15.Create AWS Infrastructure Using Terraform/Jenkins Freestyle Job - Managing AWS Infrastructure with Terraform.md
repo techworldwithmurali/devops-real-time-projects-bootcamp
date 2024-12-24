@@ -44,7 +44,7 @@
      echo "Running Terraform action: ${ACTION}"
 
      # Define variables
-     TERRAFORM_DIR="infra/ec2"
+     TERRAFORM_DIR="dev/ec2"
 
      # Change to Terraform directory
      cd $TERRAFORM_DIR
