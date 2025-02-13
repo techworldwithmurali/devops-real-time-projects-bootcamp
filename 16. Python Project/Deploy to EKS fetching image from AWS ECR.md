@@ -1,10 +1,10 @@
-### Dockerizing and Pushing to AWS ECR
+### Deploy to EKS fetching image from AWS ECR.
 
 Hello everyone,
 
-This document outlines the various methods  for Dockerizing and pushing images to AWS ECR.
+This document outlines the various methods for deploying to EKS by fetching images from AWS ECR.
 
-Please find below the details for user registration application:
+Please find the details below:
 
 | Type                          | Branch                                | GitHub URL                       |
 |-------------------------------|---------------------------------------|----------------------------------|
