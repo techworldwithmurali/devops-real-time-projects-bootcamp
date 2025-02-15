@@ -1,0 +1,90 @@
+### Steps to Integrate AWS RDS PostgreSQL with JFrog Artifactory  
+
+Follow these steps to integrate AWS RDS PostgreSQL with JFrog Artifactory:  
+
+#### Step 1: Create AWS RDS PostgreSQL Instance  
+Set up an RDS PostgreSQL 14 or 15 instance in your AWS account.  
+
+#### Step 2: Install PostgreSQL Client  
+SSH into your Amazon Linux 2023 instance and run:  
+```bash
+sudo dnf install postgresql15 -y
+```  
+
+#### Step 3: Connect to the RDS PostgreSQL Cluster  
+Replace `<endpoint>`, `<username>`, and `<database>` with your actual values:  
+```bash
+psql -h <endpoint> -U <username> -d postgres
+```  
+Example:  
+```bash
+psql -h jfrog.hhuikyyfujhty.us-east-1.rds.amazonaws.com -U postgres
+```  
+
+#### Step 4: Create Database and User  
+Once logged in, run the following SQL commands:  
+```sql
+-- Step 1: Create the 'artifactory' database with owner 'artifactoryuser'
+CREATE DATABASE artifactory 
+  WITH OWNER artifactoryuser
+  ENCODING 'UTF8';
+
+-- Step 2: Create a new user named 'artifactoryuser'
+CREATE USER artifactoryuser 
+  WITH PASSWORD 'p7tl6P7Jnpvi3l5';
+
+-- Step 3: Grant all privileges on the 'artifactory' database to 'artifactoryuser'
+GRANT ALL PRIVILEGES ON DATABASE artifactory 
+  TO artifactoryuser;
+
+-- Step 4: Exit the PostgreSQL command line
+\q
+```  
+
+#### Step 5: Stop Artifactory  
+If Artifactory is running, stop it:  
+```bash
+sudo systemctl stop artifactory.service
+```  
+
+#### Step 6: Configure PostgreSQL in Artifactory  
+Edit the configuration file:  
+```bash
+sudo vim /opt/artifactory/var/etc/system.yaml
+```  
+Add the PostgreSQL details:  
+```yaml
+database:
+  type: postgresql
+  driver: org.postgresql.Driver
+  url: jdbc:postgresql://<endpoint>:5432/artifactory
+  username: artifactoryuser
+  password: p7tl6P7Jnpvi3l5
+```  
+
+#### Step 7: Start Artifactory  
+```bash
+sudo systemctl start artifactory.service
+```  
+
+#### Step 8: Access JFrog Artifactory Again  
+Use the following URL:  
+```
+http://<IP-address>:8081
+```  
+
+#### Step 9: Verify Database Tables in Artifactory  
+To ensure the integration is successful, check if the tables are created in the `artifactory` database.  
+
+- **Step 1:** Connect/Switch to the `artifactory` database:  
+  ```bash
+  psql -h <endpoint> -U artifactoryuser -d artifactory
+  ```  
+
+- **Step 2:** Check the tables in the `artifactory` database:  
+  ```sql
+  \dt
+  ```  
+
+### 🎉 Congratulations!  
+You have successfully integrated AWS RDS PostgreSQL with JFrog Artifactory. 🚀
