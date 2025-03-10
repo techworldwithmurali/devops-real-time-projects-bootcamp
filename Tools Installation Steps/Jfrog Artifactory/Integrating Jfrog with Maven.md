@@ -3,7 +3,7 @@
 ## **Prerequisites**
 Before integrating Jfrog with Maven, ensure the following are installed:
 
-- **Java** (JDK 8 or higher)
+- **Java** (JDK 11 or higher)
 - **Maven**
 - **Jfrog is up and running**
 
@@ -26,11 +26,11 @@ Add the following section to deploy artifacts to artifactory:
 <distributionManagement>
     <snapshotRepository>
         <id>artifactory-snapshots</id>
-        <url>https://artifactory.techworldwithmurali.in/repository/maven-snapshots/</url>
+        <url>https://artifactory.techworldwithmurali.in/artifactory/maven-snapshots/</url>
     </snapshotRepository>
     <repository>
         <id>artifactory-releases</id>
-        <url>https://artifactory.techworldwithmurali.in/repository/maven-releases/</url>
+        <url>https://artifactory.techworldwithmurali.in/artifactory/maven-releases/</url>
     </repository>
 </distributionManagement>
 ```
@@ -85,5 +85,5 @@ Make sure your `pom.xml` includes the **Maven Deploy Plugin**:
    https://artifactory.techworldwithmurali.in/
    ```
 2. Log in with your **admin** credentials.
-3. Navigate to **Browse → maven-releases** or **maven-snapshots**.
-4. Confirm that your artifact appears in the repository.
+
+### Congratulations! You have successfully integrated JFrog with Maven, and now we can see the artifacts in JFrog.
